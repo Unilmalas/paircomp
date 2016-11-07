@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>PairComp</h1>
+
+<script>
+displaySort();
+</script>
+
+<button type="button"
+onclick="displaySort()">Sorted List</button>
+
+<p id="element0"></p>
+<!-- input type="text" id="myInput0"-->
+<button type="buttong" onclick="revalg()">></button>
+<button type="buttons" onclick="revals()"><</button>
+<p id="element1"></p>
+<!--input type="text" id="myInput1"-->
+<p id="elements"></p>
+
+<p id="i"></p>
+<p id="j"></p>
+
+<script>
+
+var tst = ["Apple","Orange","Banana","Mango", "Peach", "Pear"];
+var i=0, j=1, n=tst.length;
+
+function printelem() {
+	var outputstring;
+	document.getElementById("element0").innerHTML = tst[i];
+	document.getElementById("element1").innerHTML = tst[j];
+	outputstring = "";
+	for(var k=0;k<n;k++) outputstring += (tst[k] + " ");
+	document.getElementById("elements").innerHTML = outputstring;
+}
+
+function incindex() {
+	if(j<(n-1)) {
+		j++;
+	} else {
+		i++;
+		j=i+1;
+	}
+	document.getElementById("i").innerHTML =i;
+	document.getElementById("j").innerHTML =j;
+}
+
+function displaySort() {
+	printelem();
+}
+
+function revalg() {
+	// no change in order here
+	incindex();
+	printelem();
+}
+
+function revals() {
+	// j always > i: exchange
+	trfer = tst[i];
+	tst[i] = tst[j];
+	tst[j] = trfer;
+	incindex();
+	printelem();
+}
+</script>
+
+</body>
+</html> 
